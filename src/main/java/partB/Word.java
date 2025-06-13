@@ -1,5 +1,7 @@
 package partB;
 
+import static partB.Main.VOWEL_LETTERS;
+
 public class Word {
     private final String value;
 
@@ -17,7 +19,7 @@ public class Word {
 
     public boolean startsWithConsonant() {
         char c = Character.toLowerCase(firstChar());
-        return Character.isLetter(c) && !"aeiouаеёиоуыэюя".contains(String.valueOf(c));
+        return Character.isLetter(c) && !VOWEL_LETTERS.contains(String.valueOf(c));
     }
 
     public String getValue() {

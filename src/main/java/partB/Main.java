@@ -8,7 +8,7 @@ import java.util.TreeMap;
 import java.util.ArrayList;
 
 public class Main {
-
+    static final String VOWEL_LETTERS = "aeiouаеёиоуыэюя";
     // Задание 1 удалить слова длины зажаной, начинающиеся на согласную
     public static Text performTask1(Text text, int length) {
         Text copy = text.clone();
@@ -37,13 +37,13 @@ public class Main {
     private static boolean startsWithVowel(String word) {
         if (word.isEmpty()) return false;
         char c = Character.toLowerCase(word.charAt(0));
-        return "aeiouаеёиоуыэюя".indexOf(c) >= 0;
+        return VOWEL_LETTERS.indexOf(c) >= 0;
     }
 
     private static char firstConsonant(String word) {
         for (char c : word.toCharArray()) {
             char lc = Character.toLowerCase(c);
-            if (Character.isLetter(lc) && !"aeiouаеёиоуыэюя".contains(String.valueOf(lc))) {
+            if (Character.isLetter(lc) && !VOWEL_LETTERS.contains(String.valueOf(lc))) {
                 return lc;
             }
         }

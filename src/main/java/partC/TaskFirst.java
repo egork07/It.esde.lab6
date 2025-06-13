@@ -2,7 +2,7 @@ package partC;
 
 import java.util.*;
 
-public class Task_1 {
+public class TaskFirst {
     // Телефонная раскладка
     private static final Map<Character, Character> letterToDigit = new HashMap<>();
 
@@ -17,36 +17,6 @@ public class Task_1 {
         letterToDigit.put('W', '9'); letterToDigit.put('X', '9'); letterToDigit.put('Y', '9'); letterToDigit.put('Z', '9');
     }
 
-    public static void main(String[] args) {
-        String phoneNumber = "4355696753";
-        String[] dictionary = {"HELLO", "WORLD", "JAVA", "CODE", "KOD", "LOL"};
-
-        // Преобразуем слова в цифровой вид
-        Map<String, String> encodedWords = new HashMap<>();
-        for (String word : dictionary) {
-            encodedWords.put(word, encodeWord(word));
-        }
-
-        String longestMatch = "";
-        int maxLen = 0;
-
-        for (Map.Entry<String, String> entry : encodedWords.entrySet()) {
-            String word = entry.getKey();
-            String digitCode = entry.getValue();
-
-            if (phoneNumber.contains(digitCode) && digitCode.length() > maxLen) {
-                maxLen = digitCode.length();
-                longestMatch = word;
-            }
-        }
-
-        if (!longestMatch.isEmpty()) {
-            System.out.println("Самая длинная подстрока: " + longestMatch);
-        } else {
-            System.out.println("Совпадений не найдено.");
-        }
-    }
-
     // Кодирование слова в цифровую форму
     public static String encodeWord(String word) {
         StringBuilder sb = new StringBuilder();
@@ -55,4 +25,19 @@ public class Task_1 {
         }
         return sb.toString();
     }
+
+    public static String findLongestMatch(String phoneNumber, String[] dictionary) {
+        String longestMatch = "";
+        int maxLen = 0;
+
+        for (String word : dictionary) {
+            String digitCode = encodeWord(word);
+            if (phoneNumber.contains(digitCode) && digitCode.length() > maxLen) {
+                maxLen = digitCode.length();
+                longestMatch = word;
+            }
+        }
+        return longestMatch;
+    }
+
 }

@@ -1,9 +1,8 @@
 package partC.Task_2;
 
-
 public class StringPerformanceComparison {
 
-    public static String measureStringConcatTime() {
+    public static long measureStringConcatTime() {
         long start = System.currentTimeMillis();
 
         String result = "";
@@ -12,10 +11,10 @@ public class StringPerformanceComparison {
         }
 
         long end = System.currentTimeMillis();
-        return "Время работы (String): " + (end - start) + " мс";
+        return end - start;
     }
 
-    public static String measureStringBuilderTime() {
+    public static long measureStringBuilderTime() {
         long start = System.currentTimeMillis();
 
         StringBuilder sb = new StringBuilder();
@@ -26,7 +25,17 @@ public class StringPerformanceComparison {
         String result = sb.toString();
 
         long end = System.currentTimeMillis();
-        return "Время работы (StringBuilder): " + (end - start) + " мс";
+        return end - start;
+    }
+
+    public static String displayComparison(long stringTime, long stringBuilderTime) {
+        return "Execution time (String): " + stringTime + " ms\n" +
+                "Execution time (StringBuilder): " + stringBuilderTime + " ms";
+    }
+    public static void main(String[] args) {
+        long time1 = measureStringConcatTime();
+        long time2 = measureStringBuilderTime();
+        String result = displayComparison(time1, time2);
     }
 }
 

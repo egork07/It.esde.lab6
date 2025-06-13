@@ -1,6 +1,6 @@
 package partA;
 
-public class Task_2 {
+public class PunctuationCounter {
     public static int countPunctuation(String text) {
         int count = 0;
         for (char ch : text.toCharArray()) {
