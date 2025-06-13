@@ -3,7 +3,6 @@ package partC;
 import java.util.*;
 
 public class TaskFirst {
-    // Телефонная раскладка
     private static final Map<Character, Character> letterToDigit = new HashMap<>();
 
     static {
@@ -17,7 +16,6 @@ public class TaskFirst {
         letterToDigit.put('W', '9'); letterToDigit.put('X', '9'); letterToDigit.put('Y', '9'); letterToDigit.put('Z', '9');
     }
 
-    // Кодирование слова в цифровую форму
     public static String encodeWord(String word) {
         StringBuilder sb = new StringBuilder();
         for (char c : word.toUpperCase().toCharArray()) {

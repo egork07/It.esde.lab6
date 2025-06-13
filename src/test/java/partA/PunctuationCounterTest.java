@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class PunctuationCounterTest {
 
-    @Test
+    @Test // Проверяет подсчёт знаков
     public void testCommaAndExclamation() {
         String input = "Hello, world!";
         int expected = 2;
@@ -29,7 +29,7 @@ public class PunctuationCounterTest {
         Assert.assertEquals(expected, partA.PunctuationCounter.countPunctuation(input));
     }
 
-    @Test
+    @Test //Проверяет строку без знаков
     public void testNoPunctuation() {
         String input = "Just text without characters";
         int expected = 0;

@@ -41,7 +41,7 @@ public class StringPerformanceComparisonTest {
     @Test
     public void testExecutionTimeGreaterThanZero() {
         String result = String.valueOf(StringPerformanceComparison.measureStringBuilderTime());
-        String timeString = result.replaceAll("\\D+", ""); // Извлекаем цифры
+        String timeString = result.replaceAll("\\D+", "");
         int time = Integer.parseInt(timeString);
         assertTrue(time > 0);
     }
